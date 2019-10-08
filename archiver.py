@@ -2,7 +2,6 @@ import time
 import sys
 import os
 import argparse
-from fileinput import input
 
 from LZ77.zipper import zip_dirs_and_files
 from LZ77.unzipper import unzip_file

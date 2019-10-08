@@ -10,14 +10,14 @@ class Link:
         return [self.offset // 16, (self.offset % 16) * 16 + self.len_copy]
 
     @staticmethod
-    def decode_link(two_bytes):
+    def decode_bytes_as_link(two_bytes):
         offset = two_bytes[0] * 16 + two_bytes[1] // 16
         length = two_bytes[1] % 16
         return offset, length
 
     @staticmethod
     def copy(array, two_bytes):
-        offset, length = Link.decode_link(two_bytes)
+        offset, length = Link.decode_bytes_as_link(two_bytes)
         pointer = len(array) - offset
         for i in range(length):
             array.append(array[pointer + i])
