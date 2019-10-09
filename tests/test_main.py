@@ -1,18 +1,22 @@
+import os
+
+# Для запуска тестов через консоль
+# import sys
+# sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), os.path.pardir))
+
+import archiver
+import tempfile
+import argparse
+import unittest.mock
 import LZ77.unzipper as unzipper
 import LZ77.zipper as zipper
 from LZ77.Link import Link
 from Parser import parser_archive
 from Parser.File import get_hash_file
-import archiver
-import tempfile
-import os
-import argparse
-import unittest.mock
 from shutil import rmtree
 from parameterized import parameterized
 
-
-test_file = 'test_log.log'
+test_file = os.path.join('tests', 'test_log.txt')
 
 
 def create_file(name):
